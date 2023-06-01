@@ -1,0 +1,49 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% load my_tags %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block css %}{% static 'css/app/trainers.style.css' %}{% endblock css %}
+
+{% block content %}
+    <main class="content">
+        <div class="container">
+            <div class="content__title">Тренера</div>
+            <a class="content__add" href="{% url 'app:add_trainer' %}">Добавить +</a>
+            <div class="content__cards cards">
+                <div class="cards__row">
+                    {% for trainer in trainers %}
+                        <div class="cards__card card">
+                            <div class="card__image">
+                                <img oncontextmenu="return false" src="{% if trainer.image %}{{ trainer.image.url }}{% else %}{% static 'img/default-avatar.png' %}{% endif %}" alt="">
+                            </div>
+                            <div class="card__title">
+                                {{ trainer.surname }} {{ trainer.name|cut:1 }}.{% if trainer.patronymic %}
+                                {{ trainer.patronymic|cut:1 }}.{% endif %}</div>
+                            <div class="card__description">
+                                {% if trainer.description|my_len > 150 %}{{ trainer.description|cut:150 }}...{% else %}{{ trainer.description }}{% endif %}
+                            </div>
+                            <div class="card__button"><a href="{% url 'app:trainer_detail' trainer.id %}">Подробнее...</a></div>
+                        </div>
+                    {% endfor %}
+
+                </div>
+            </div>
+            {% if trainers.count > 6 %}
+                <div class="content__pagination pagination">
+                    <div class="pagination__row">
+                        <a class="pagination__page" href="">Предыдущая</a>
+                        <div><a class="pagination__page pagination__page-m" href="">1</a>
+                            <a class="pagination__page pagination__page-m" href="">2</a>
+                            <a class="pagination__page pagination__page-m" href="">3</a></div>
+                        <a class="pagination__page pagination__page-next" href="">Следующая</a>
+                    </div>
+                </div>
+            {% endif %}
+            {% include 'app/navigation.html' %}
+        </div>
+    </main>
+{% endblock %}

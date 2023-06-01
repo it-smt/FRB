@@ -1,0 +1,34 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block css %}{% static 'css/app/trainer_detail.style.css' %}{% endblock css %}
+
+{% block content %}
+    <main class="content">
+        <div class="container">
+            <div class="content__action-row">
+                <div class="content__back"><a href="{% url 'app:trainers' %}">« Назад</a></div>
+                {% if user.is_superuser or user.is_staff %}
+                    <div class="content__delete"><a href="{% url 'app:delete_trainer' trainer.id %}">Удалить</a></div>
+                    <div class="content__edit"><a href="{% url 'app:edit_trainer' trainer.id %}">Редактировать</a></div>
+                {% endif %}
+            </div>
+            <div class="content__card card">
+                <div class="card__body">
+                    <div class="card__snp">{{ trainer.surname }} {{ trainer.name }} {{ trainer.patronymic }}</div>
+                    <div class="card__education">Образование: {{ trainer.education }}</div>
+                    <div class="card__experience">Опыт: {{ trainer.experience }} лет</div>
+                </div>
+                <div class="card__image">
+                    <img oncontextmenu="return false" src="
+                            {% if trainer.image %}{{ trainer.image.url }}{% else %}{% static 'img/default-avatar.png' %}{% endif %}"
+                         alt="">
+                </div>
+            </div>
+            <div class="content__description">Описание:<br><span>{{ trainer.description }}</span></div>
+        </div>
+    </main>
+{% endblock content %}

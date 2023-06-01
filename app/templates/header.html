@@ -1,0 +1,25 @@
+{% load static %}
+{% load my_tags %}
+<header class="header">
+    <div class="container">
+        <div class="header__row">
+            <div class="header__logo">
+                <a href="{% url 'app:index' %}"><img src="{% static 'img/fbr_logo.png' %}" alt=""></a>
+            </div>
+            <div class="header__menu menu">
+                <div class="menu__icon">
+                    <span></span>
+                </div>
+                <nav class="menu__body">
+                    <a href="{% url 'news:index' %}" class="menu__link">Новости</a>
+                    <a href="{% url 'app:achievements' %}" class="menu__link">Достижения</a>
+                    {% if user.authenticated %}
+                        <p class="menu__link profile">{{ user.last_name }} {{ user.first_name | cut:1 }}.</p>
+                    {% endif %}
+                    <a data-goto=".nav__title-1" href="" class="menu__link menu__navigation">Навигация</a>
+                    <a href="{% url 'app:sign_up' %}" class="menu__link menu__button">Записаться</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

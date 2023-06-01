@@ -1,0 +1,24 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="container">
+            <h1 class="content__title">Расписание</h1>
+            <a href="{% url 'app:add_schedule' %}" class="content__create"><img src="{% static 'img/add.png' %}" width="35" alt=""></a>
+            <div class="content__schedules">
+                {% for schedule in schedules %}
+                    <h2 class="content__days">{{ schedule.days }}</h2>
+                    {% for time in schedule.get_list %}
+                        <p>{{ time }}</p>
+                    {% endfor %}
+                    <a href="{% url 'app:edit_schedule' schedule.id %}" class="content__edit"><img src="{% static 'img/free-icon-edit-3756597.png' %}" width="35" alt=""></a>
+                    <a href="{% url 'app:delete_schedule' schedule.id %}" class="content__delete"><img src="{% static 'img/free-icon-bin-5661832.png' %}" width="35" alt=""></a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

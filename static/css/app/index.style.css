@@ -1,0 +1,217 @@
+.content {
+  flex: 1 1 auto;
+  margin: 70px 0px 22px 0px;
+}
+.content__row {
+  display: flex;
+  justify-content: space-around;
+  margin: 22px 0px 0px 0px;
+}
+.content__welcome {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.content__title {
+  cursor: default;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 61px;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0px 0px 15px 0px;
+}
+.content__subtitle {
+  cursor: default;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+  max-width: 600px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 35px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0px 0px 15px 0px;
+}
+.content__subtitle ul li {
+  position: relative;
+  white-space: nowrap;
+}
+.content__subtitle ul li:before {
+  content: "";
+  position: absolute;
+  top: 13px;
+  left: 10px;
+  width: 10px;
+  height: 10px;
+  background: #fff;
+  border-radius: 50%;
+}
+.content__button a {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+  display: block;
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 35px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  padding: 9px 25px;
+  background: #e17511;
+  border-radius: 15px;
+  margin: 0px 0px 28px 0px;
+}
+.content__button a:hover {
+  color: rgba(192, 192, 192, 0.9);
+  background: #ac5b0f;
+}
+.content__button a:active {
+  color: rgba(255, 255, 255, 0.9);
+  background: #e17511;
+}
+.content__nav {
+  flex: 0 0 auto;
+  background: #343434;
+  border-radius: 15px;
+}
+
+.nav {
+  background: #343434;
+  border-radius: 15px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+.nav__title {
+  cursor: default;
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 35px;
+  line-height: 42px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+  background: #242424;
+  border-radius: 15px;
+  padding: 17px 54px;
+  margin: 0px 0px 20px 0px;
+}
+.nav__nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav__nav > div {
+  margin: 0 0 20px 0;
+}
+div .nav__link {
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.25);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.9);
+}
+.nav__link:last-child {
+  margin: 0;
+}
+.nav__link:hover {
+  color: rgba(192, 192, 192, 0.9);
+}
+.nav__link:active {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 1010px) {
+  .content {
+    margin: 114px 0 22px 0;
+  }
+  .content__row {
+    flex-direction: column;
+  }
+  .content__welcome {
+    order: 1;
+  }
+  .content__title {
+    font-size: 40px;
+    line-height: 45px;
+    text-align: center;
+    margin: 0 0 16px 0;
+  }
+  .content__subtitle {
+    line-height: 30px;
+    font-size: 18px;
+    margin: 0 0 20px 0;
+  }
+  .content__button a {
+    font-size: 22px;
+  }
+  .content__nav {
+    width: 100%;
+    order: 0;
+    margin: 70px 0 0 0;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+  .nav {
+    box-shadow: 0px 13px 16px rgba(0, 0, 0, 0.25);
+    border-radius: 0;
+  }
+  .nav__title {
+    display: none;
+  }
+  .nav__nav {
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px 0;
+  }
+  .nav__nav div {
+    margin: 0 15px 0 0;
+  }
+  div .nav__link {
+    font-size: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .content {
+    margin: 70px 0px 22px 0px;
+  }
+  .content__row {
+    flex-direction: column;
+  }
+  .content__welcome {
+    order: 0;
+  }
+  .content__title {
+    font-size: 33px;
+  }
+  .content__subtitle {
+    font-size: 16px;
+  }
+  .content__button a {
+    font-size: 22px;
+  }
+  .content__nav {
+    order: 1;
+    position: static;
+  }
+  .nav {
+    margin: 0;
+    border-radius: 15px;
+  }
+  .nav__title {
+    display: block;
+    padding: 17px 0px;
+    font-size: 38px;
+  }
+  .nav__nav {
+    flex-direction: column;
+    padding: 0;
+  }
+  .nav__nav div {
+    margin: 0 0 20px 0;
+  }
+  div .nav__link {
+    font-size: 24px;
+  }
+}

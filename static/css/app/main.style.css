@@ -1,0 +1,25 @@
+body {
+  font-family: "Inter";
+  background: #4e4c4c;
+}
+
+body._lock {
+  overflow: hidden;
+}
+
+.wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1140px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.content {
+  flex: 1 1 auto;
+}

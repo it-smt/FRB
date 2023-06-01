@@ -1,0 +1,26 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block css %}
+    {% static 'css/app/trainer_edit.style.css' %}
+{% endblock %}
+
+{% block content %}
+    <main class="content">
+        <div class="container">
+            <div class="content__back"><a href="{% url 'app:trainer_detail' trainer.id %}">« Назад</a></div>
+            <div class="content__warning">При сохранении убедитесь, что фотография выбрана! Иначе будет
+                загружена фотография по умолчанию!
+            </div>
+            <div class="content__title"></div>
+            <form action="{% url 'app:edit_trainer' trainer.id %}" method="post" class="content__form form"
+                  enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form }}
+                <input class="form__input-button" style="display: block;" type="submit" value="Сохранить">
+            </form>
+        </div>
+    </main>
+{% endblock content %}

@@ -1,0 +1,25 @@
+{% extends 'app/base.html' %}
+
+{% load my_tags %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="container">
+            <h1 class="content__title">Мероприятия</h1>
+            <div class="content__events">
+                {% for event in events %}
+                    <div class="content__event evnet">
+                        <div class="evnet__image"><img src="" alt=""></div>
+                        <div class="evnet__title">{{ event.title }}</div>
+                        <div class="event__event-place">{{ event.event_place }}</div>
+                        <div class="event__description">{{ event.description | cut:30 }}</div>
+                        <a href="" class="event__detail">Подробнее</a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% include 'app/navigation.html' %}
+{% endblock %}

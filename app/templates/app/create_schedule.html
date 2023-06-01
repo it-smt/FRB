@@ -1,0 +1,19 @@
+{% extends 'app/base.html' %}
+
+{% load static %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="container">
+            <h1 class="content__title">Редактирование</h1>
+            <form action="{% url 'app:add_schedule' %}" method="post">
+                {% csrf_token %}
+                {{ form.days }}
+                {{ form.time }}
+                <button type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

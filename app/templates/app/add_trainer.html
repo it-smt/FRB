@@ -1,0 +1,22 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block css %}
+    {% static 'css/app/trainer_add.style.css' %}
+{% endblock %}
+
+{% block content %}
+    <main class="content">
+        <div class="container">
+            <div class="content__back"><a href="{% url 'app:trainers' %}">« Назад</a></div>
+            <div class="content__title">Форма добавления тренера</div>
+            <form action="{% url 'app:add_trainer' %}" method="post" class="content__form form" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form }}
+                <input style="display: block;" type="submit" value="Добавить" class="form__input-button">
+            </form>
+        </div>
+    </main>
+{% endblock content %}

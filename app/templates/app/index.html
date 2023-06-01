@@ -1,0 +1,25 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block title %}{{ title }}{% endblock title %}
+
+{% block css %}{% static 'css/app/index.style.css' %}{% endblock css %}
+
+{% block content %}
+<main class="content">
+    <div class="container">
+        <div class="content__row">
+            <div class="content__welcome ">
+                <div class="content__title">ФРБ Нижневартовск</div>
+                <div class="content__subtitle">
+                    Добро пожаловать на сайт нашего клуба!
+                </div>
+                <div class="content__image">
+                    <img src="{% static 'img/content_image.png' %}" alt="">
+                </div>
+            </div>
+            {% include 'app/navigation.html' %}
+        </div>
+    </div>
+</main>
+{% endblock content %}
